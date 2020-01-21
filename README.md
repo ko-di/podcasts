@@ -1,9 +1,6 @@
 #  Podcasts for Designers
 
-
-
 List of Podcast channels I have subscribed to over the years which you might find interesting . 
-
 
 
 ## After Hours
