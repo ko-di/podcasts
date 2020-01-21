@@ -1,0 +1,604 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Podcasts</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="92dfe194-2078-43e2-94c1-d9d01902fcc8" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📻</span></div><h1 class="page-title">Podcasts</h1></header><div class="page-body"><hr id="961c4932-d4d7-4712-8a55-4bdb81a2b1d0"/><p id="7012846e-848c-4d21-8241-8713f0997538" class="">
+</p><p id="b3f2a0f5-df9a-4885-9f49-1c0c4284a5f9" class="">List of Podcast channels I have subscribed to over the years which you might find interesting. 
+</p><p id="a4ec09e9-ca4f-4663-981f-1b16fc466936" class=""><strong>After Hours</strong></p><p id="add7d20c-44a3-4516-9e01-0bd8866a4cfa" class="">Harvard Business School professors discuss and debate current events that sit at the crossroads of business and culture. Youngme Moon, Mihir Desai, and Felix Oberholzer-Gee engage in a spirited discussion on a range of topics torn from the headlines — from Facebook, to free trade, to the #MeToo movement. Informed by their unique expertise as professors at one of the world’s leading business schools, their takes are always surprising, unconventional, and insightful.</p><p id="dc70c7b5-8531-4370-82fb-90fa089d00c2" class=""><a href="https://podcasts.apple.com/gb/podcast/after-hours/id1363110130">https://podcasts.apple.com/gb/podcast/after-hours/id1363110130</a></p><p id="13441ebf-c0b4-48be-badb-254539f6263c" class="">
+</p><p id="026a0bb5-8ff0-42bd-b92a-791764ec55c8" class=""><strong>Design Matters</strong></p><p id="dd386e18-ba52-4035-bba6-3bf2565df7a6" class="">Design Matters with Debbie Millman is one of the world’s very first podcasts. Broadcasting independently for over 14 years, the show is about how incredibly creative people design the arc of their lives.</p><p id="36554fcf-7e93-4904-954c-9a3f3cb43495" class=""><a href="https://podcasts.apple.com/gb/podcast/design-matters-with-debbie-millman/id328074695">https://podcasts.apple.com/gb/podcast/design-matters-with-debbie-millman/id328074695</a></p><p id="874808b3-8d1a-4b7d-ae20-614cb06cb3e5" class="">
+</p><p id="c9da25a5-022c-48f6-bde6-dcdafe4e1a56" class=""><strong>Method</strong></p><p id="a961d707-d04e-481a-b935-50b199f616ce" class="">The Method podcast profiles designers at Google, giving listeners an inside look at their journeys and design choices.</p><p id="364ab226-518d-4b75-ae7a-80fc5401be05" class=""><a href="https://podcasts.apple.com/gb/podcast/method-podcast-from-google-design/id1263714410">https://podcasts.apple.com/gb/podcast/method-podcast-from-google-design/id1263714410</a></p><p id="f1c36a6a-6b8c-4faf-bce2-dfcbb083864c" class="">
+</p><p id="0a1fc11c-1fd7-42d3-8f68-b25386572c66" class=""><strong>Ted Talks daily</strong></p><p id="9b2483cc-7bf8-41be-a44d-3d362e54f70b" class="">Want TED Talks on the go? Every weekday, this feed brings you our latest talks in audio format. Hear thought-provoking ideas on every subject imaginable -- from Artificial Intelligence to Zoology, and everything in between -- given by the world&#x27;s leading thinkers and doers. This collection of talks, given at TED and TEDx conferences around the globe, is also available in video format.</p><p id="cf41559b-424d-41b2-9b07-33aa302140a1" class=""><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=160904630">https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=160904630</a></p><p id="df65d911-f989-4555-88d4-a3a3cde37955" class="">
+</p><p id="fa16f2fa-2111-4545-aff6-4490eb183868" class=""><strong>High Resolution</strong></p><p id="0a89d6ed-d979-4037-889f-318319eb1fe5" class="">Bringing clarity to how the best companies approach, communicate, and deploy design. We’ve hand-picked the design industry’s 25 greatest influencers and change-makers to bring you 1000min of deep-dive conversation. Hosted by Bobby Ghoshal and Jared Erondu.</p><p id="c265483d-bec5-435b-aca8-83c3d3de68e9" class=""><a href="https://podcasts.apple.com/gb/podcast/high-resolution/id1204941994">https://podcasts.apple.com/gb/podcast/high-resolution/id1204941994</a></p><p id="6f16bb81-bee6-475c-9770-c3128990205e" class="">
+</p><p id="e5aeb4af-fa60-4e81-b9ac-f58d5f44c360" class=""><strong>Noise Creativity</strong></p><p id="b9866a08-1209-440a-a843-01ae3dea9fa5" class="">An audio series talking to creatives across the globe about what makes them tick. Whether it’s side projects, travelling, hobbies or community, we’re humanising your favourite designers</p><p id="7a069975-f8c5-4fc4-9b9e-c5a75e744320" class=""><a href="https://podcasts.apple.com/gb/podcast/noise-creativity-design/id1459870974">https://podcasts.apple.com/gb/podcast/noise-creativity-design/id1459870974</a></p><p id="ca8fa6dc-43b2-4139-8f97-c748bc683b86" class="">
+</p><p id="6d6b40d5-92ff-44ad-95b3-6bf86e5eb099" class=""><strong>All in the Mind</strong></p><p id="73a2c801-802f-4723-ac5f-93a3969ef1d6" class="">Programme exploring the limits and potential of the human mind</p><p id="23a0a90e-308b-4309-8ded-fa4cf08471d0" class=""><a href="https://podcasts.apple.com/gb/podcast/all-in-the-mind/id643660675">https://podcasts.apple.com/gb/podcast/all-in-the-mind/id643660675</a></p><p id="66f08528-35b1-46eb-9f35-c3e3c161ddb8" class="">
+</p><p id="c2c1c933-9058-4f6f-86b8-5cea492d154e" class=""><strong>Design &amp; Architecture</strong></p><p id="7240d60c-d6d7-4047-a0f0-4ab811dc9066" class="">Host Frances Anderton looks at design and architecture from a Los Angeles perspective.</p><p id="c055d3f1-3726-4b0d-ae77-f27a6faa1b0e" class=""><a href="https://podcasts.apple.com/gb/podcast/design-and-architecture/id73330703">https://podcasts.apple.com/gb/podcast/design-and-architecture/id73330703</a></p><p id="f2574f67-b391-4828-a4a0-e2cb1ed74b19" class="">
+</p><p id="1b8f17dc-c872-4788-a28f-f6cfaabcef25" class=""><strong>Tech Tent</strong></p><p id="be614373-0426-4ef6-b120-647fb0c5f273" class="">How the technology business is transforming the way we live and work.</p><p id="1f02db9c-dd86-49b8-abe8-89f60a671c42" class=""><a href="https://podcasts.apple.com/gb/podcast/tech-tent/id802996636">https://podcasts.apple.com/gb/podcast/tech-tent/id802996636</a></p><p id="10152d86-d504-4c85-a8e6-dffe7b629084" class="">
+</p><p id="d913771b-c9a3-4736-af1d-571dc5661cac" class=""><strong>The Digital Human</strong></p><p id="1d68ce86-a229-4348-be3e-8ba8b734fc84" class="">Aleks Krotoski explores the digital world</p><p id="1b48fbd1-9198-4288-bf91-046c2e297d70" class=""><a href="https://podcasts.apple.com/gb/podcast/the-digital-human/id824163293">https://podcasts.apple.com/gb/podcast/the-digital-human/id824163293</a></p><p id="ade72cf1-2c8e-4f45-849c-ad7c4403130a" class="">
+</p><p id="35bd271b-e41a-4b74-beb2-8878119605ee" class=""><strong>Table Manners
+</strong>Jessie Ware hosts a podcast about food, family, and the beautiful art of having a chat, direct from her very own dinner table. With a little bit of help from her chef extraordinaire mum Lennie, each week guests from the worlds of music, culture and politics drop by for a bite and a bit of a natter. Oversharing guaranteed.</p><p id="a5b0507c-649b-47c2-bb8e-df27d3f8a657" class=""><a href="https://podcasts.apple.com/gb/podcast/table-manners-with-jessie-ware/id1305228910">https://podcasts.apple.com/gb/podcast/table-manners-with-jessie-ware/id1305228910</a></p><p id="b686b053-03cf-4d03-bd01-fe754325f54b" class="">
+</p><p id="11ed0a84-f509-49a3-b4e3-bab11a59832d" class=""><strong>Monocle on design</strong></p><p id="c2c76962-669f-40be-b76f-e1d5b995d5d9" class="">Everything you need to know about the world of design, from furniture to fashion and craft to architecture. Expect fresh stories, new finds and designers and all the latest news from the world’s most exciting studios.</p><p id="d07690a1-71d6-48a3-8bcb-85dccf3e68d5" class=""><a href="https://podcasts.apple.com/gb/podcast/monocle-24-monocle-on-design/id474762601">https://podcasts.apple.com/gb/podcast/monocle-24-monocle-on-design/id474762601</a></p><p id="8f5b0128-033b-4f0a-b0fe-ad02d5dba765" class="">
+</p><p id="1144ea55-edf2-444e-9ce2-87773777164d" class=""><strong>Workmode</strong></p><p id="ffd51839-58ec-48ae-bbed-605db3be840d" class="">A series of conversations with leading design, tech and cultural creators on how they work. Hosted by Alex Nemeroff, Co-Founder of Dynamo, a digital agency in Montreal, Canada.</p><p id="97aac292-90e0-4985-9618-0b35d1b86323" class=""><a href="https://podcasts.apple.com/gb/podcast/workmode/id1149475096">https://podcasts.apple.com/gb/podcast/workmode/id1149475096</a></p><p id="69d5599c-e53a-4884-acce-ae029b6eea5a" class="">
+</p><p id="f5b31011-017e-47d3-9234-1e0aaec5b125" class=""><strong>Overtime</strong></p><p id="f5fc21a6-bb97-439f-9106-aed2d75ac078" class="">Overtime, Dribbble&#x27;s weekly podcast, explores the most interesting design news and gives you the tips you need to create your best work. No need to scroll copious news sites and design Twitter—host Meg Lewis and friends are primed to inform, entertain, and inspire you each week. Consider Overtime your audio lifeline to the design community, packaged in a perfectly punchy Shot. Subscribe and listen every Wednesday to stay ahead of the game.</p><p id="96bbc88e-e488-4334-9124-dc0c52da2ca7" class=""><a href="https://podcasts.apple.com/gb/podcast/overtime/id1068288639">https://podcasts.apple.com/gb/podcast/overtime/id1068288639</a></p><p id="f4697e59-dc0a-41a6-8a0f-64d670b67741" class="">
+</p><p id="75530285-9923-45bb-b5ea-3f8f94804902" class=""><strong>Masters of Scale</strong></p><p id="4abfede2-65c0-43f3-be04-445edbd3464d" class="">The best startup advice from Silicon Valley &amp; beyond. Iconic CEOs — from Nike to Netflix, Starbucks to Slack — share the stories &amp; strategies that helped them grow from startups into global brands.</p><p id="2db4e65b-5946-4095-aef1-4467d568a1f5" class=""><a href="https://podcasts.apple.com/gb/podcast/masters-of-scale-with-reid-hoffman/id1227971746">https://podcasts.apple.com/gb/podcast/masters-of-scale-with-reid-hoffman/id1227971746</a></p><p id="c8f2df34-fa9b-4416-ae6c-bd236887c768" class="">
+</p><p id="e5122842-1f0f-4a9f-b70a-51b3fa44b26f" class=""><strong>Insight per minute</strong></p><p id="4df1d153-108d-4d0d-a341-a8ea30c6c3d4" class="">One Idea. One Minute. One Voice. Just as certain ideas fit into an essay and others are more suited to a tweet, we believe that 60 seconds of a singular voice is a powerful format for new, uncluttered insight.</p><p id="9fa14c29-08d8-4e78-a7ea-6f6740589b2f" class=""><a href="https://podcasts.apple.com/gb/podcast/insights-per-minute/id698148817">https://podcasts.apple.com/gb/podcast/insights-per-minute/id698148817</a></p><p id="3cb95d30-3006-496c-b4f5-49dde14a9f9d" class="">
+</p><p id="bebb8179-9e7f-40a8-9eca-686286cd86f3" class=""><strong>Layout</strong></p><p id="b5150762-f995-425e-a6f1-8dd60afbb5e8" class="">Layout is a weekly podcast about design, technology, programming and everything else.</p><p id="c50b9b33-86a1-4262-b4de-400a923cc6e6" class=""><a href="https://podcasts.apple.com/gb/podcast/layout/id1050276556">https://podcasts.apple.com/gb/podcast/layout/id1050276556</a></p><p id="446b9d66-cd30-4bdf-b570-0bc1c1a48007" class="">
+</p><p id="9fc5e29c-c0d1-4beb-b2b6-c0dbe7adecec" class=""><strong>Design Review</strong></p><p id="103bea4e-58fb-4b26-9206-d6a8ed922fdc" class=""><a href="https://podcasts.apple.com/gb/podcast/design-review/id947753823">https://podcasts.apple.com/gb/podcast/design-review/id947753823</a></p><p id="5c0cf0c4-8c91-4a8d-8930-bf707569028e" class="">
+</p><p id="3f20a579-e879-4a3e-9f6c-3e6183fc5286" class=""><strong>Inclusive Technology 4 All</strong></p><p id="3039fcd2-255a-4488-aae9-faafa7e68221" class="">Welcome to Inclusive Technology 4 All. Join Mike Marotta (@mmatp) as he shares the latest news related to inclusive and assistive technology. Our focus is tools and strategies to support accessible, inclusive education and community independence.</p><p id="8f0b3206-d88b-45b4-966e-9a5760cdae45" class=""><a href="https://podcasts.apple.com/gb/podcast/inclusive-technology-4-all/id1383943113">https://podcasts.apple.com/gb/podcast/inclusive-technology-4-all/id1383943113</a></p><p id="b875bcd4-c624-4899-9713-1d340253b085" class="">
+</p><p id="34aee650-dbfb-468c-9933-527db8dcc6bd" class=""><strong>Hilarious World of Depression
+</strong>A show about clinical depression...with laughs? Well, yeah. Depression is an incredibly common and isolating disease experienced by millions, yet often stigmatized by society.</p><p id="55919487-7991-4518-b9e0-89278cd9c027" class=""><a href="https://podcasts.apple.com/gb/podcast/the-hilarious-world-of-depression/id1181589175">https://podcasts.apple.com/gb/podcast/the-hilarious-world-of-depression/id1181589175</a></p><p id="2853474e-4b19-4909-be7b-172e2f49f3b3" class="">
+</p><p id="b575452b-c878-4150-b568-6ea2675e78a2" class=""><strong>HDR Ideascast</strong></p><p id="468047db-8b5f-4cad-986b-9a866691bb0b" class="">A weekly podcast featuring the leading thinkers in business and management.</p><p id="c7163228-adbd-4e3a-b7a8-1bbe773c204e" class=""><a href="https://podcasts.apple.com/gb/podcast/hbr-ideacast/id152022135">https://podcasts.apple.com/gb/podcast/hbr-ideacast/id152022135</a></p><p id="b19b3b09-5e08-42b3-b458-b49537879aca" class="">
+</p><p id="cacc07bc-b1bf-42a0-bd70-9e8853e4c8ff" class=""><strong>The Great Disconnect</strong></p><p id="658de3a9-ff90-4735-a906-ef269479081f" class="">ong-form interviews for your ears, The Great Discontent podcast features in-depth conversations with today’s artists, makers, and risk-takers.</p><p id="8345968f-9133-45f2-86d7-3b128a0eb077" class=""><a href="https://thegreatdiscontent.com/podcast">https://thegreatdiscontent.com/podcast</a></p><p id="20d701e9-4a8f-4850-969c-241f5b7d5a67" class="">
+</p><p id="2464f537-d4cf-46c1-9718-d4275a4362ba" class=""><strong>Entrepreneurs Playing games</strong></p><p id="d42c75c4-33da-45d2-89aa-3b2dd5b4ce1d" class="">Taking place every 2 weeks, Amandine Flachs plays video games with early-stage startup founders before deep diving into their journey and challenges over live video interviews.</p><p id="1edca613-f97e-4150-8b22-4a9262f21f88" class=""><a href="https://podcasts.apple.com/us/podcast/entrepreneurs-playing-games-podcast-edition/id1480231435?ign-mpt=uo%3D4">https://podcasts.apple.com/us/podcast/entrepreneurs-playing-games-podcast-edition/id1480231435?ign-mpt=uo%3D4</a></p><p id="ba4a5609-bcc7-44e0-b9da-edac65112197" class="">
+</p><p id="6403ab12-39e7-4346-a18f-a4590f5a90d8" class=""><strong>UX Support Group</strong></p><p id="17fe3487-8444-4c14-8234-1c8a100e7c9e" class="">The UX Support Group is once a week podcast where we empower UX professionals of all levels to get to the next level in their professional journeys. We host meetups, hackathons, portfolio reviews, and numerous other events — Hosted by Christopher Charles Fernandez, Danny Setiawan &amp; occasional guest host. </p><p id="47c73299-450e-4ccc-8728-ac99d4a05680" class=""><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=1449892085">https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=1449892085</a></p><p id="19dbf97e-7f20-4a3c-8960-8209ff7adaa0" class="">
+</p><p id="3eced61f-26e5-4c3a-9a52-cd381e54dec7" class=""><strong>Product breakfast club</strong></p><p id="52f75fa4-47b5-4295-bff6-45d32a446cfb" class="">he Product Breakfast Club Podcast is the perfect podcast for those looking for a behind-the-scenes look at how products are designed, how product teams work and for those wondering how to make better products faster.</p><p id="6993c51b-0e37-4018-84a3-8c2156a46853" class=""><a href="https://www.productbreakfastclub.com/">https://www.productbreakfastclub.com/</a></p><p id="dc5a9010-be9c-4440-8ae9-e22ad18a0e5d" class="">
+</p><p id="ac684871-696b-4ff2-a9b8-6cb96aef7023" class=""><strong>Wireframe
+Wireframe reveals the stories behind user experience design, for UX/UI designers, graphic designers, and the design-curious. Hosted by Khoi Vinh, principal designer at Adobe and one of Fast Company’s 100 Most Creative People in Business, the podcast explores unexpected ways that user experience design helps technology fit into our lives.</strong></p><p id="5fb7a225-b96d-4eb3-99de-2749a75a94e2" class=""><a href="https://podcasts.apple.com/gb/podcast/wireframe/id1437677219">https://podcasts.apple.com/gb/podcast/wireframe/id1437677219</a></p><p id="d8e8ab6c-b434-4dcb-8b56-2fa81217cb0a" class="">
+<strong>Reply
+&quot;&#x27;A podcast about the internet&#x27; that is actually an unfailingly original exploration of modern life and how to survive it.&quot; - The Guardian. Hosted by PJ Vogt and Alex Goldman, from Gimlet.</strong></p><p id="07720571-ab41-4844-982d-c8b5392312b6" class=""><a href="https://podcasts.apple.com/gb/podcast/reply-all/id941907967?mt=2&amp;ign-mpt=uo%3D4">https://podcasts.apple.com/gb/podcast/reply-all/id941907967?mt=2&amp;ign-mpt=uo%3D4</a></p><p id="87e42226-fb44-4d42-a6cd-37893eaa6c99" class="">
+</p><p id="b370ebea-5a24-420a-b51f-5a641b8ddf76" class=""><strong>Invisibilia
+Unseeable forces control human behavior and shape our ideas, beliefs, and assumptions. Invisibilia—Latin for invisible things—fuses narrative storytelling with science that will make you see your own life differently.</strong></p><p id="2f6a9cc5-dd98-4678-a10d-0ee6734df2b8" class=""><a href="https://podcasts.apple.com/podcast/id953290300?mt=2">https://podcasts.apple.com/podcast/id953290300?mt=2</a></p><p id="8cc39bc9-54d3-4e1b-aeb7-7355821ceb32" class="">
+</p><p id="828cbeb1-1ad9-42ce-971d-dcb9cf9dd651" class=""><strong>Let it out
+
+</strong>Long-form organic conversations with a diverse group of guests including visionary authors, musicians, entrepreneurs, chefs, comedians, and actors with interesting perspectives, careers, and stories. Here they candidly discuss everything including productivity, creativity, self-care, wellness, sex, love, body image, and more. Sometimes things get super deep and spiritual and sometimes they are funny and light because life is both.</p><p id="e375bf5e-4ba5-49aa-a8b8-c20179902a8d" class=""><a href="https://podcasts.apple.com/gb/podcast/let-it-out/id669216566">https://podcasts.apple.com/gb/podcast/let-it-out/id669216566</a></p><p id="ae99d4e9-cb05-4cf1-8912-f2b4437c05ac" class="">
+</p><p id="5f6d1057-51c1-408d-ba3a-5214c50579a8" class="">
+</p></div></article></body></html>
