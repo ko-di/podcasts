@@ -173,3 +173,23 @@ Unseeable forces control human behavior and shape our ideas, beliefs, and assump
 Long-form organic conversations with a diverse group of guests including visionary authors, musicians, entrepreneurs, chefs, comedians, and actors with interesting perspectives, careers, and stories. Here they candidly discuss everything including productivity, creativity, self-care, wellness, sex, love, body image, and more. Sometimes things get super deep and spiritual and sometimes they are funny and light because life is both.
 
 https://podcasts.apple.com/gb/podcast/let-it-out/id669216566
+
+
+## Beyond users
+
+A podcast that teaches business to designers.
+
+https://podcasts.apple.com/de/podcast/beyond-users/id1341678453
+
+
+## This is HCD
+
+This podcast brings together thought-leaders from various disciplines such as service design, user experience, interaction design, and product management to discuss the craft, and to better understand what it means to work within a human-centric method.
+
+https://podcasts.apple.com/gb/podcast/this-is-hcd-human-centered-design-podcast/id1238981415
+
+## Service Design Show
+
+Light hearted conversations with the people that are shaping Service Design field discussing the current state of the industry, exciting new developments and challenges up ahead.
+
+https://podcasts.apple.com/gb/podcast/service-design-show/id1104665758
